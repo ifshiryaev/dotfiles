@@ -4,7 +4,7 @@ Based on http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-
 
 git clone http://github.com/ifshiryaev/dotfiles.git <path to repo>/dotfiles
 ln -s <path to repo>/dotfiles/vim ~/.vim 
-ln -s <path to repo>/dotfiles/vim/vimrc ~/.vimrc
+ln -s <path to repo>/dotfiles/vimrc ~/.vimrc
 cd <path to repo>/dotfiles
 git submodule init
 git submodule update
