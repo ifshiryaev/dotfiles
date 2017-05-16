@@ -50,3 +50,9 @@ Delete the relevant section from the .gitmodules file.
 Delete the relevant section from .git/config.
 Run git rm --cached path_to_submodule (no trailing slash).
 Commit and delete the now untracked submodule files.
+
+TMUX INSTALLATION
+
+Create simlink to tmux.conf file:
+
+ln -s <path to repo>/tmux.conf ~/.tmux.conf
