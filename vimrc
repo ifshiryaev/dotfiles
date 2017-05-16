@@ -260,22 +260,14 @@ nnoremap <Leader>tp :tabprev<CR>
 set backup
 set writebackup
 
-" If you have .vim-backup in the current directory, it'll use that,
-" otherwise it saves it to .
+" If you have .vim-backup in the current directory, it'll use that, otherwise we create it
 if isdirectory($HOME . '/.vim-backup') == 0
   :silent !mkdir -p ~/.vim-backup >/dev/null 2>&1
 endif
-set backupdir-=.
-set backupdir+=. " Ensure . directory will be used last
-set backupdir-=~/ " Do not save to $HOME
-set backupdir^=./.vim-backup/ " Where to put backup files
-set backup
+set backupdir=~/.vim-backup,. " Where to put backup files
 
-" If you have .vim-swap in the current directory, it'll use that.
-" Otherwise it saves it to .
+" If you have .vim-swap in the current directory, it'll use that, otherwise we create it
 if isdirectory($HOME . '/.vim-swap') == 0
   :silent !mkdir -p ~/.vim-swap >/dev/null 2>&1
 endif
-set directory=./.vim-swap// " Where to put swap files
-set directory+=~/tmp//
-set directory+=.
+set directory=~/.vim-swap//,. " Where to put swap files
