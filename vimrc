@@ -1,9 +1,6 @@
 " http://vim.wikia.com/wiki/Example_vimrc
-" Authors: http://vim.wikia.com/wiki/Vim_on_Freenode
-" Description: A minimal, but feature rich, example .vimrc. If you are a
-"              newbie, basing your first .vimrc on this file is a good choice.
-"              If you're a more advanced user, building your own .vimrc based
-"              on this file is still a good idea.
+" Authors: http://github.com/ifshiryaev
+" Description: My own .vimrc
  
 "------------------------------------------------------------
 " Features {{{1
@@ -21,7 +18,7 @@ set nocompatible
 filetype indent plugin on
  
 " Enable syntax highlighting
-syntax on
+syntax enable
  
  
 "------------------------------------------------------------
@@ -171,12 +168,12 @@ let mapleader = ","
 
 
 " Change cursor color at different modes
-highlight Cursor guifg=white guibg=white
-highlight iCursor guifg=white guibg=steelblue
-set guicursor=n-v-c:block-Cursor
-set guicursor+=i:ver100-iCursor
-set guicursor+=n-v-c:blinkon0
-set guicursor+=i:blinkwait10
+"highlight Cursor guifg=white guibg=white
+"highlight iCursor guifg=white guibg=steelblue
+"set guicursor=n-v-c:block-Cursor
+"set guicursor+=i:ver100-iCursor
+"set guicursor+=n-v-c:blinkon0
+"set guicursor+=i:blinkwait10
 
 
 " -----------------------------------------------------------
@@ -201,6 +198,7 @@ Plugin 'scrooloose/syntastic'             " Syntax checking hacks
 Plugin 'scrooloose/nerdtree'              " A tree explorer plugin
 Plugin 'majutsushi/tagbar'                " Vim plugin that displays tags in a window, ordered by scope
 Plugin 'vim-scripts/Conque-GDB'           " GDB command line interface and terminal emulator
+Plugin 'altercation/vim-colors-solarized' " Solarized scheme for vim
 
 
 " All of your Plugins must be added before the following line
@@ -253,6 +251,11 @@ nnoremap <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 nnoremap <Leader>tn :tabnext<CR>
 nnoremap <Leader>tp :tabprev<CR>
 
+" vim-colors-solarized activation
+set nu
+set background=dark
+let g:solarized_termcolors=256
+colorscheme solarized
 
 " Save your backup files to a less annoying place than the current directory
 "
