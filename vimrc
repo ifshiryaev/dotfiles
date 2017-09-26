@@ -148,7 +148,10 @@ set expandtab
 " Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
 " which is the default
 map Y y$
- 
+
+" Replace currently selected text with default register without yanking it
+vnoremap p "_dP
+
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
@@ -215,6 +218,7 @@ nnoremap <F2> :YcmComplete GoToDeclaration<CR>
 
 " NerdTree config & shortcuts
 let NERDTreeShowHidden=1
+let g:NERDTreeDirArrows=0 " solve issue/108 when nerdtree are not able to unfold directory
 map <C-n> :NERDTreeToggle<CR>
 
 
@@ -238,6 +242,9 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+" To enable c++11 standards and use the libc++ library with clang 
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 
 " Tagbar shortcuts
 nmap <F9> :TagbarToggle<CR>
@@ -252,9 +259,8 @@ nnoremap <Leader>tn :tabnext<CR>
 nnoremap <Leader>tp :tabprev<CR>
 
 " vim-colors-solarized activation
-set nu
-set background=dark
 let g:solarized_termcolors=256
+set background=dark
 colorscheme solarized
 
 " Save your backup files to a less annoying place than the current directory
