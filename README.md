@@ -34,12 +34,15 @@ git submodule update --init --recursive
 
 UPDATE ALL BUNDLED MODULES
 
-git submodule foreach git pull origin master
+git submodule --recursive --remote
+
+Not recommended, because this way all submodules are updated to the latest version on remote, 
+not to the pinned (worked and tested) version
 
 
 INSTALL A NEW BUNDLE
 
-git submodule add http://github.com/tpope/vim-fugitive.git bundle/fugitive
+git submodule add http://github.com/tpope/vim-fugitive.git vim/bundle/fugitive
 git add .
 git commit -m "Install Fugitive.vim bundle as a submodule."
 
