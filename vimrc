@@ -192,7 +192,9 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-
+"-----------------------------------------------------
+"Plugin list begin
+"-----------------------------------------------------
 Plugin 'VundleVim/Vundle.vim'             " Let Vundle manage Vundle, required
 Plugin 'Valloric/YouCompleteMe'           " A code-completion engine
 Plugin 'rdnetto/YCM-Generator'            " .ycm_extra_conf.py generator
@@ -203,7 +205,10 @@ Plugin 'majutsushi/tagbar'                " Vim plugin that displays tags in a w
 Plugin 'vim-scripts/Conque-GDB'           " GDB command line interface and terminal emulator
 Plugin 'altercation/vim-colors-solarized' " Solarized scheme for vim
 Plugin 'tpope/vim-obsession'              " Vim session manager
-
+Plugin 'christoomey/vim-tmux-navigator'   " Navigate between vim and tmux seamlessly
+"-----------------------------------------------------
+"Plugin list end
+"-----------------------------------------------------
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -268,6 +273,16 @@ nnoremap <Leader>tp :tabprev<CR>
 let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
+
+" Vim tmux navigator
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <C-\> :TmuxNavigatePrevious<cr>
+
 
 " Save your backup files to a less annoying place than the current directory
 "
