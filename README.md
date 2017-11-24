@@ -58,4 +58,5 @@ TMUX INSTALLATION
 
 Create simlink to tmux.conf file:
 
+ln -s <path to repo>/tmux ~/.tmux
 ln -s <path to repo>/tmux.conf ~/.tmux.conf

@@ -202,6 +202,7 @@ Plugin 'scrooloose/nerdtree'              " A tree explorer plugin
 Plugin 'majutsushi/tagbar'                " Vim plugin that displays tags in a window, ordered by scope
 Plugin 'vim-scripts/Conque-GDB'           " GDB command line interface and terminal emulator
 Plugin 'altercation/vim-colors-solarized' " Solarized scheme for vim
+Plugin 'tpope/vim-obsession'              " Vim session manager
 
 
 " All of your Plugins must be added before the following line
