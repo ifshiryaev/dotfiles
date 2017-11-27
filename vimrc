@@ -152,9 +152,9 @@ map Y y$
 " Replace currently selected text with default register without yanking it
 vnoremap p "_dP
 
-" Map <C-L> (redraw screen) to also turn off search highlighting until the
+" Map <C-L> (rdraw screen) to also turn off search highlighting until the
 " next search
-nnoremap <C-L> :nohl<CR><C-L>
+nnoremap <leader> :nohl<CR><C-L>
 
 
 " -----------------------------------------------------------
@@ -167,7 +167,7 @@ set clipboard=unnamedplus
 
 
 " Remap leader
-let mapleader = ","
+map <SPACE> <leader>
 
 
 " Change cursor color at different modes
@@ -181,8 +181,7 @@ let mapleader = ","
 
 " -----------------------------------------------------------
 " Custom pluguins
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible              " be iMproved, required filetype off                  " required
 
 
 "=====================================================
