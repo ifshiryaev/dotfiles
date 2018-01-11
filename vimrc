@@ -154,7 +154,7 @@ vnoremap p "_dP
 
 " Map <C-L> (rdraw screen) to also turn off search highlighting until the
 " next search
-nnoremap <leader> :nohl<CR><C-L>
+nnoremap <C-L> :nohl<CR><C-L>
 
 
 " -----------------------------------------------------------
@@ -197,14 +197,13 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'             " Let Vundle manage Vundle, required
 Plugin 'Valloric/YouCompleteMe'           " A code-completion engine
 Plugin 'rdnetto/YCM-Generator'            " .ycm_extra_conf.py generator
-Plugin 'bling/vim-airline'                " Lean & mean status/tabline for vim that's light as air. 
-Plugin 'scrooloose/syntastic'             " Syntax checking hacks 
+Plugin 'bling/vim-airline'                " Lean & mean status/tabline for vim that's light as air 
+"Plugin 'scrooloose/syntastic'             " Syntax checking hacks 
 Plugin 'scrooloose/nerdtree'              " A tree explorer plugin
 Plugin 'majutsushi/tagbar'                " Vim plugin that displays tags in a window, ordered by scope
 Plugin 'vim-scripts/Conque-GDB'           " GDB command line interface and terminal emulator
 Plugin 'altercation/vim-colors-solarized' " Solarized scheme for vim
 Plugin 'tpope/vim-obsession'              " Vim session manager
-Plugin 'christoomey/vim-tmux-navigator'   " Navigate between vim and tmux seamlessly
 "-----------------------------------------------------
 "Plugin list end
 "-----------------------------------------------------
@@ -215,26 +214,32 @@ filetype plugin indent on    " required
 
 
 " YouCompleteMe shortcuts
-nnoremap <Leader>gt :YcmComplete GetType<CR>
-nnoremap <Leader>gi :YcmComplete GoToInclude<CR>
+nnoremap <leader>gt :YcmComplete GetType<CR>
+nnoremap <leader>gi :YcmComplete GoToInclude<CR>
 nnoremap <leader>gd :YcmComplete GoToDeclaration<CR>
 nnoremap <F2> :YcmComplete GoToDeclaration<CR>
+nnoremap <F5> :YcmForceCompileAndDiagnostics <CR>
+nnoremap <leader>fi :YcmComplete FixIt <CR>
+
+" Set YCM as error checker
+let g:ycm_register_as_syntastic_checker=1
+
+" Populate the location list automatically every time YCM gets new diagnostic data
+let g:ycm_always_populate_location_list=1
+
+" Settings for integration with Airline
+let g:ycm_error_symbol='!!'
+let g:ycm_warning_symbol='>>'
+
+" Additional autocomplete settings
+let g:ycm_complete_in_comments=1
+let g:ycm_complete_in_strings=1
 
 
 " NerdTree config & shortcuts
 let NERDTreeShowHidden=1
 let g:NERDTreeDirArrows=0 " solve issue/108 when nerdtree are not able to unfold directory
 map <C-n> :NERDTreeToggle<CR>
-
-
-" Settings for integration with Airline
-let g:ycm_error_symbol='!!'
-let g:ycm_warning_symbol='>>'
-
-
-" Additional autocomplete settings
-let g:ycm_complete_in_comments=0
-let g:ycm_complete_in_strings=1
 
 
 " vim-airline config
@@ -265,22 +270,20 @@ nnoremap <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 
 
 " Tab shortcuts
-nnoremap <Leader>tn :tabnext<CR>
-nnoremap <Leader>tp :tabprev<CR>
+nnoremap <leader>tn :tabnext<CR>
+nnoremap <leader>tp :tabprev<CR>
 
 " vim-colors-solarized activation
 let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
 
-" Vim tmux navigator
-let g:tmux_navigator_no_mappings = 1
-
-nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
-nnoremap <silent> <C-\> :TmuxNavigatePrevious<cr>
+" Remap navigation between panels using <leader>
+nnoremap <leader>h <C-w>h
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>l <C-w>l
+nnoremap <leader>/ <C-w>/
 
 
 " Save your backup files to a less annoying place than the current directory
