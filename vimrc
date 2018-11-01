@@ -19,7 +19,7 @@ filetype indent plugin on
  
 " Enable syntax highlighting
 syntax enable
- 
+
  
 "------------------------------------------------------------
 " Must have options {{{1
@@ -204,12 +204,14 @@ Plugin 'majutsushi/tagbar'                " Vim plugin that displays tags in a w
 Plugin 'vim-scripts/Conque-GDB'           " GDB command line interface and terminal emulator
 Plugin 'altercation/vim-colors-solarized' " Solarized scheme for vim
 Plugin 'tpope/vim-obsession'              " Vim session manager
+Plugin 'brgmnn/vim-opencl'                " opencl syntax highlighting
 "-----------------------------------------------------
 "Plugin list end
 "-----------------------------------------------------
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+filetype off                 " trick to force syntax highlighting for opencl files (vim-opencl plugin) actually working
 filetype plugin indent on    " required
 
 
@@ -303,3 +305,4 @@ if isdirectory($HOME . '/.vim-swap') == 0
   :silent !mkdir -p ~/.vim-swap >/dev/null 2>&1
 endif
 set directory=~/.vim-swap//,. " Where to put swap files
+
