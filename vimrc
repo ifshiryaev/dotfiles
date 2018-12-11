@@ -198,32 +198,35 @@ Plugin 'VundleVim/Vundle.vim'             " Let Vundle manage Vundle, required
 Plugin 'Valloric/YouCompleteMe'           " A code-completion engine
 Plugin 'rdnetto/YCM-Generator'            " .ycm_extra_conf.py generator
 Plugin 'bling/vim-airline'                " Lean & mean status/tabline for vim that's light as air 
-"Plugin 'scrooloose/syntastic'             " Syntax checking hacks 
 Plugin 'scrooloose/nerdtree'              " A tree explorer plugin
 Plugin 'majutsushi/tagbar'                " Vim plugin that displays tags in a window, ordered by scope
 Plugin 'vim-scripts/Conque-GDB'           " GDB command line interface and terminal emulator
 Plugin 'altercation/vim-colors-solarized' " Solarized scheme for vim
 Plugin 'tpope/vim-obsession'              " Vim session manager
 Plugin 'brgmnn/vim-opencl'                " opencl syntax highlighting
+" (Disabled as ycm takes the role) Plugin 'scrooloose/syntastic'             " Syntax checking hacks 
 "-----------------------------------------------------
 "Plugin list end
 "-----------------------------------------------------
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-filetype off                 " trick to force syntax highlighting for opencl files (vim-opencl plugin) actually working
+
+filetype off                 " trick to force syntax highlighting for opencl files (vim-opencl plugin) actually work
 filetype plugin indent on    " required
 
 
 " YouCompleteMe shortcuts
+nnoremap <leader>go :YcmComplete GoTo<CR>
 nnoremap <leader>gt :YcmComplete GetType<CR>
-nnoremap <leader>gi :YcmComplete GoToInclude<CR>
-nnoremap <leader>gd :YcmComplete GoToDeclaration<CR>
+nnoremap <leader>gd :YcmComplete GetDoc<CR>
+nnoremap <leader>goi :YcmComplete GoToInclude<CR>
+nnoremap <leader>god :YcmComplete GoToDeclaration<CR>
 nnoremap <F2> :YcmComplete GoToDeclaration<CR>
 nnoremap <F5> :YcmForceCompileAndDiagnostics <CR>
-nnoremap <leader>fi :YcmComplete FixIt <CR>
+nnoremap <leader>f :YcmComplete FixIt <CR>
 
-" Set YCM as error checker
+" Set YCM as error checker (syntastic replacement)
 let g:ycm_register_as_syntastic_checker=1
 
 " Populate the location list automatically every time YCM gets new diagnostic data
@@ -237,6 +240,8 @@ let g:ycm_warning_symbol='>>'
 let g:ycm_complete_in_comments=1
 let g:ycm_complete_in_strings=1
 
+let g:ycm_show_diagnostics_ui=1
+let g:ycm_max_diagnostics_to_display=1000
 
 " NerdTree config & shortcuts
 let NERDTreeShowHidden=1
@@ -250,18 +255,18 @@ let g:Powerline_symbols='fancy'
 
 
 " Syntastic config
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
 " To enable c++11 standards and use the libc++ library with clang 
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+" let g:syntastic_cpp_compiler = 'clang++'
+" let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 
 " Tagbar shortcuts
 nmap <F9> :TagbarToggle<CR>
