@@ -39,7 +39,7 @@ git pull
 
 UPDATE ALL BUNDLED SUBMODULES
 
-git submodule --recursive --remote
+git submodule update --recursive --remote
 
 Not recommended, because this way all submodules are updated to the latest version on remote, 
 not to the pinned (worked and tested) version
