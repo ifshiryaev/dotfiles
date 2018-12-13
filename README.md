@@ -24,7 +24,7 @@ sudo apt-get install python-dev python3-dev
 
 Compiling YCM with semantic support for C-family languages:
 cd <path to repo>/vim/bundle/YouCompleteMe
-./install.py --clang-completer
+python3 ./install.py --clang-completer
 
 
 WHEN NEW SUBMODULE IS INSTALLED IN REMOTE
