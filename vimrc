@@ -217,11 +217,11 @@ filetype plugin indent on    " required
 
 
 " YouCompleteMe shortcuts
-nnoremap <leader>go :YcmComplete GoTo<CR>
-nnoremap <leader>gt :YcmComplete GetType<CR>
-nnoremap <leader>gd :YcmComplete GetDoc<CR>
-nnoremap <leader>goi :YcmComplete GoToInclude<CR>
-nnoremap <leader>god :YcmComplete GoToDeclaration<CR>
+nnoremap <leader>g :YcmComplete GoTo<CR>
+nnoremap <leader>t :YcmComplete GetType<CR>
+nnoremap <leader>d :YcmComplete GetDoc<CR>
+nnoremap <leader>gi :YcmComplete GoToInclude<CR>
+nnoremap <leader>gd :YcmComplete GoToDeclaration<CR>
 nnoremap <F2> :YcmComplete GoToDeclaration<CR>
 nnoremap <F5> :YcmForceCompileAndDiagnostics <CR>
 nnoremap <leader>f :YcmComplete FixIt <CR>
@@ -254,6 +254,7 @@ map <C-n> :NERDTreeToggle<CR>
 let g:Powerline_symbols='fancy'
 
 
+" !!! Syntastic is absolete, using ycm instead
 " Syntastic config
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
@@ -280,10 +281,20 @@ nnoremap <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 nnoremap <leader>tn :tabnext<CR>
 nnoremap <leader>tp :tabprev<CR>
 
-" vim-colors-solarized activation
-let g:solarized_termcolors=256
-set background=dark
-colorscheme solarized
+
+" QuickFix shortcuts
+nnoremap <leader>co :copen<CR>
+nnoremap <leader>cc :cclose<CR>
+nnoremap <leader>cn :cnext<CR>
+nnoremap <leader>cp :cprevious<CR>
+
+
+" Location list shortcuts
+nnoremap <leader>lo :lopen<CR>
+nnoremap <leader>lc :lclose<CR>
+nnoremap <leader>ln :lnext<CR>
+nnoremap <leader>lp :lprevious<CR>
+
 
 " Remap navigation between panels using <leader>
 nnoremap <leader>h <C-w>h
@@ -291,6 +302,12 @@ nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 nnoremap <leader>l <C-w>l
 nnoremap <leader>/ <C-w>/
+
+
+" vim-colors-solarized activation
+let g:solarized_termcolors=16
+set background=dark
+colorscheme solarized
 
 
 " Save your backup files to a less annoying place than the current directory
