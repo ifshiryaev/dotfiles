@@ -31,8 +31,13 @@ WHEN NEW SUBMODULE IS INSTALLED IN REMOTE
 
 git submodule update --init --recursive
 
+UPDATE ONE BUNDLED SUBMODULE
 
-UPDATE ALL BUNDLED MODULES
+cd <path to submodule>
+git checkout master
+git pull
+
+UPDATE ALL BUNDLED SUBMODULES
 
 git submodule --recursive --remote
 
@@ -49,10 +54,10 @@ git commit -m "Install Fugitive.vim bundle as a submodule."
 
 TO REMOVE A SUBMODULE
 
-Delete the relevant section from the .gitmodules file.
-Delete the relevant section from .git/config.
-Run git rm --cached path_to_submodule (no trailing slash).
-Commit and delete the now untracked submodule files.
+git submodule deinit <path to submodule>
+rm -rf .git/modules/<path to submodule>
+git rm -f <path to submodule> 
+# Note: no trailing slash in the end of <path to submodule>
 
 TMUX INSTALLATION
 
