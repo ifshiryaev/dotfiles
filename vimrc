@@ -204,7 +204,6 @@ Plugin 'vim-scripts/Conque-GDB'           " GDB command line interface and termi
 Plugin 'altercation/vim-colors-solarized' " Solarized scheme for vim
 Plugin 'tpope/vim-obsession'              " Vim session manager
 Plugin 'brgmnn/vim-opencl'                " opencl syntax highlighting
-" (Disabled as ycm takes the role) Plugin 'scrooloose/syntastic'             " Syntax checking hacks 
 "-----------------------------------------------------
 "Plugin list end
 "-----------------------------------------------------
@@ -217,14 +216,13 @@ filetype plugin indent on    " required
 
 
 " YouCompleteMe shortcuts
-nnoremap <leader>g :YcmComplete GoTo<CR>
-nnoremap <leader>t :YcmComplete GetType<CR>
-nnoremap <leader>d :YcmComplete GetDoc<CR>
+nnoremap <leader>go :YcmComplete GoTo<CR>
+nnoremap <leader>gt :YcmComplete GetType<CR>
+nnoremap <leader>gd :YcmComplete GetDoc<CR>
 nnoremap <leader>gi :YcmComplete GoToInclude<CR>
-nnoremap <leader>gd :YcmComplete GoToDeclaration<CR>
+nnoremap <leader>fi :YcmComplete FixIt <CR>
 nnoremap <F2> :YcmComplete GoToDeclaration<CR>
 nnoremap <F5> :YcmForceCompileAndDiagnostics <CR>
-nnoremap <leader>f :YcmComplete FixIt <CR>
 
 " Set YCM as error checker (syntastic replacement)
 let g:ycm_register_as_syntastic_checker=1
