@@ -248,7 +248,6 @@ map <C-n> :NERDTreeToggle<CR>
 
 
 " vim-airline config
-" let g:airline_powerline_fonts=1
 let g:Powerline_symbols='fancy'
 
 
@@ -277,7 +276,10 @@ nnoremap <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 
 " Tab shortcuts
 nnoremap <leader>tn :tabnext<CR>
-nnoremap <leader>tp :tabprev<CR>
+nnoremap <leader>tp :tabprevious<CR>
+nnoremap <leader>tf :tabfirst<CR>
+nnoremap <leader>tl :tablast<CR>
+nnoremap <leader>tc :tabclose<CR>
 
 
 " QuickFix shortcuts
@@ -288,18 +290,25 @@ nnoremap <leader>cp :cprevious<CR>
 
 
 " Location list shortcuts
-nnoremap <leader>lo :lopen<CR>
-nnoremap <leader>lc :lclose<CR>
-nnoremap <leader>ln :lnext<CR>
-nnoremap <leader>lp :lprevious<CR>
+nnoremap <leader>io :lopen<CR>
+nnoremap <leader>ic :lclose<CR>
+nnoremap <leader>in :lnext<CR>
+nnoremap <leader>ip :lprevious<CR>
 
 
 " Remap navigation between panels using <leader>
-nnoremap <leader>h <C-w>h
-nnoremap <leader>j <C-w>j
-nnoremap <leader>k <C-w>k
-nnoremap <leader>l <C-w>l
-nnoremap <leader>/ <C-w>/
+nnoremap <leader>h <C-w>h<CR>
+nnoremap <leader>j <C-w>j<CR>
+nnoremap <leader>k <C-w>k<CR>
+nnoremap <leader>l <C-w>l<CR>
+nnoremap <leader>/ <C-w>/<CR>
+
+
+" Python code style formating command for yapf
+autocmd FileType python nnoremap <leader>y :0,$!yapf<CR><C-o>
+
+" C/C++ code style formating command for clang-format
+nnoremap <silent><leader>cf :!clang-format --style="Mozilla" -i %<CR>
 
 
 " vim-colors-solarized activation
@@ -337,6 +346,3 @@ endif
 
 " Where to put swap files
 set directory=~/.vim-swap//,. 
-
-" Python code style format command for yapf
-autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr><C-o>
