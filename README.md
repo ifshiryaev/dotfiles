@@ -1,5 +1,6 @@
-VIM + PLUGINS INSTALLATION
+# VIM + PLUGINS INSTALLATION
 
+## Istall vim
 Based on http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/
 
 git clone http://github.com/ifshiryaev/dotfiles.git <path to repo>
@@ -10,7 +11,7 @@ git submodule init
 git submodule update
 
 
-INSTALL VIM PLUGINS
+## Install vim plugins
 
 Launch vim and type :PluginsInstall
 
@@ -27,17 +28,17 @@ cd <path to repo>/vim/bundle/YouCompleteMe
 python3 ./install.py --clang-completer
 
 
-WHEN NEW SUBMODULE IS INSTALLED IN REMOTE
+### When new submodule is installed in remote
 
 git submodule update --init --recursive
 
-UPDATE ONE BUNDLED SUBMODULE
+### Update one bundled submodule
 
 cd <path to submodule>
 git checkout master
 git pull
 
-UPDATE ALL BUNDLED SUBMODULES
+### Update all bundled submodules
 
 git submodule update --recursive --remote
 
@@ -45,23 +46,30 @@ Not recommended, because this way all submodules are updated to the latest versi
 not to the pinned (worked and tested) version
 
 
-INSTALL A NEW BUNDLE
+### Install a new bundle
 
 git submodule add http://github.com/tpope/vim-fugitive.git vim/bundle/fugitive
 git add .
 git commit -m "Install Fugitive.vim bundle as a submodule."
 
 
-TO REMOVE A SUBMODULE
+### To remove a submodule
 
 git submodule deinit <path to submodule>
 rm -rf .git/modules/<path to submodule>
 git rm -f <path to submodule> 
 # Note: no trailing slash in the end of <path to submodule>
 
-TMUX INSTALLATION
+# TMUX INSTALLATION
 
 Create simlink to tmux.conf file:
 
 ln -s <path to repo>/tmux ~/.tmux
 ln -s <path to repo>/tmux.conf ~/.tmux.conf
+
+# MISC
+
+## INSTALL YAPF - python code style formatting utility
+
+pip install yapf
+

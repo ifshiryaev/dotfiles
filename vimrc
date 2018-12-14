@@ -173,10 +173,10 @@ map <SPACE> <leader>
 " Change cursor color at different modes
 "highlight Cursor guifg=white guibg=white
 "highlight iCursor guifg=white guibg=steelblue
-"set guicursor=n-v-c:block-Cursor
-"set guicursor+=i:ver100-iCursor
-"set guicursor+=n-v-c:blinkon0
-"set guicursor+=i:blinkwait10
+" set guicursor=n-v-c:block-Cursor
+" set guicursor+=i:ver100-iCursor
+" set guicursor+=n-v-c:blinkon0
+" set guicursor+=i:blinkwait10
 
 
 " -----------------------------------------------------------
@@ -309,20 +309,34 @@ colorscheme solarized
 
 
 " Save your backup files to a less annoying place than the current directory
-"
+
 " Tell vim to keep a backup files
-set backup
-set writebackup
+set backup 
 
 " If you have .vim-backup in the current directory, it'll use that, otherwise we create it
 if isdirectory($HOME . '/.vim-backup') == 0
   :silent !mkdir -p ~/.vim-backup >/dev/null 2>&1
 endif
-set backupdir=~/.vim-backup,. " Where to put backup files
+
+" Where to put backup files
+set backupdir=~/.vim-backup,. 
+
+" Make backup before overwriting the current buffer
+set writebackup 
+
+" Overwrite the original backup file
+set backupcopy=yes
+
+" Meaningful backup name, ex: filename@2018-12-14.11:06
+au BufWritePre * let &bex = '@' . strftime("%F.%H:%M")
 
 " If you have .vim-swap in the current directory, it'll use that, otherwise we create it
 if isdirectory($HOME . '/.vim-swap') == 0
   :silent !mkdir -p ~/.vim-swap >/dev/null 2>&1
 endif
-set directory=~/.vim-swap//,. " Where to put swap files
 
+" Where to put swap files
+set directory=~/.vim-swap//,. 
+
+" Python code style format command for yapf
+autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr><C-o>
