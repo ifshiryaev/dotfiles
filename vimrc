@@ -308,7 +308,7 @@ nnoremap <leader>/ <C-w>/<CR>
 autocmd FileType python nnoremap <leader>y :0,$!yapf<CR><C-o>
 
 " C/C++ code style formating command for clang-format
-nnoremap <silent><leader>cf :!clang-format --style="Mozilla" -i %<CR>
+nnoremap <leader>cf :!clang-format --style="{BasedOnStyle: Mozilla, IndentWidth: 4}" -i %<CR>
 
 
 " vim-colors-solarized activation
@@ -346,3 +346,15 @@ endif
 
 " Where to put swap files
 set directory=~/.vim-swap//,. 
+
+" If you have .vim-view in the current directory, it'll use that, otherwise we create it
+if isdirectory($HOME . '/.vim-view') == 0
+  :silent !mkdir -p ~/.vim-view >/dev/null 2>&1
+endif
+
+" Where to put views files
+set viewdir=~/.vim-view
+
+" Save and restore views (code foldings)
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
