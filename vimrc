@@ -160,29 +160,18 @@ nnoremap <C-L> :nohl<CR><C-L>
 " -----------------------------------------------------------
 " Custom settings
 
+" Highlight cursor in insert mode
+:autocmd InsertEnter,InsertLeave * set cul!
 
-" Sets default clipboard. Allows to copy from vim and paste to whatever place
-" directly
+" Sets default clipboard. Allows to copy from vim and paste to whatever place directly
 set clipboard=unnamedplus
-
 
 " Remap leader
 map <SPACE> <leader>
 
-
-" Change cursor color at different modes
-"highlight Cursor guifg=white guibg=white
-"highlight iCursor guifg=white guibg=steelblue
-" set guicursor=n-v-c:block-Cursor
-" set guicursor+=i:ver100-iCursor
-" set guicursor+=n-v-c:blinkon0
-" set guicursor+=i:blinkwait10
-
-
 " -----------------------------------------------------------
 " Custom pluguins
 set nocompatible              " be iMproved, required filetype off                  " required
-
 
 "=====================================================
 " Vundle settings
@@ -204,6 +193,9 @@ Plugin 'vim-scripts/Conque-GDB'           " GDB command line interface and termi
 Plugin 'altercation/vim-colors-solarized' " Solarized scheme for vim
 Plugin 'tpope/vim-obsession'              " Vim session manager
 Plugin 'brgmnn/vim-opencl'                " opencl syntax highlighting
+Plugin 'SirVer/ultisnips'                 " Snippets engine
+Plugin 'honza/vim-snippets'               " Snippets are separated from the engine
+Plugin 'ervandew/supertab'                " Makes YCM compatible with UltiSnips
 "-----------------------------------------------------
 "Plugin list end
 "-----------------------------------------------------
@@ -215,7 +207,7 @@ filetype off                 " trick to force syntax highlighting for opencl fil
 filetype plugin indent on    " required
 
 
-" YouCompleteMe shortcuts
+" YouCompleteMe config & shortcuts
 nnoremap <leader>go :YcmComplete GoTo<CR>
 nnoremap <leader>gt :YcmComplete GetType<CR>
 nnoremap <leader>gd :YcmComplete GetDoc<CR>
@@ -238,8 +230,26 @@ let g:ycm_warning_symbol='>>'
 let g:ycm_complete_in_comments=1
 let g:ycm_complete_in_strings=1
 
+" Diagnostics
 let g:ycm_show_diagnostics_ui=1
 let g:ycm_max_diagnostics_to_display=1000
+
+" Navigation
+let g:ycm_key_list_select_completion=['<C-j>', '<Down>']
+let g:ycm_key_list_previous_completion=['<C-k>', '<Up>']
+
+
+" SuberTab
+let g:SuperTabDefaultCompletionType='<C-n>'
+
+
+" Ultisnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<C-f>"
+let g:UltiSnipsJumpBackwardTrigger="<C-b>"
+let g:UltiSnipsListSnippets="<C-l>"
+let g:UltiSnipsEditSplit="vertical"
+
 
 " NerdTree config & shortcuts
 let NERDTreeShowHidden=1
@@ -250,21 +260,6 @@ map <C-n> :NERDTreeToggle<CR>
 " vim-airline config
 let g:Powerline_symbols='fancy'
 
-
-" !!! Syntastic is absolete, using ycm instead
-" Syntastic config
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-
-" To enable c++11 standards and use the libc++ library with clang 
-" let g:syntastic_cpp_compiler = 'clang++'
-" let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 
 " Tagbar shortcuts
 nmap <F9> :TagbarToggle<CR>
@@ -304,10 +299,10 @@ nnoremap <leader>l <C-w>l<CR>
 nnoremap <leader>/ <C-w>/<CR>
 
 
-" Python code style formating command for yapf
+" Python code style formating command for yapf, but install YAPF first (pip install yapf)
 autocmd FileType python nnoremap <leader>y :0,$!yapf<CR><C-o>
 
-" C/C++ code style formating command for clang-format
+" C/C++ code style formating command for clang-format (apt install clang-format)
 nnoremap <leader>cf :!clang-format --style="{BasedOnStyle: Mozilla, IndentWidth: 4}" -i %<CR>
 
 
