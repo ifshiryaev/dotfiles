@@ -1,0 +1,20 @@
+extends c, cpp
+
+snippet desc "Description of the source file" b
+/** 
+* @brief ${1: One line to give the files's brief description}
+*
+* ${2:Detailed description here}
+*
+* @file ${3:`!p snip.rv = snip.fn`}
+*
+* @author ${4:Ilia Shiriaev} ${5:(ifshiryaev@gmail.com)}
+*
+* @date `!v strftime("%Y-%m-%d %H:%M:%S")` 
+*
+* Copyright (c) ${6:company_name}.
+* All rights reserved.
+*
+*/ 
+${0}
+endsnippet

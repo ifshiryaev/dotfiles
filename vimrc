@@ -249,6 +249,8 @@ let g:UltiSnipsJumpForwardTrigger="<C-f>"
 let g:UltiSnipsJumpBackwardTrigger="<C-b>"
 let g:UltiSnipsListSnippets="<C-l>"
 let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "customsnippets"]
+let g:snips_author="Ilia Shiriaev"
 
 
 " NerdTree config & shortcuts
@@ -292,11 +294,11 @@ nnoremap <leader>ip :lprevious<CR>
 
 
 " Remap navigation between panels using <leader>
-nnoremap <leader>h <C-w>h<CR>
-nnoremap <leader>j <C-w>j<CR>
-nnoremap <leader>k <C-w>k<CR>
-nnoremap <leader>l <C-w>l<CR>
-nnoremap <leader>/ <C-w>/<CR>
+nnoremap <leader>h <C-w>h
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>l <C-w>l
+nnoremap <leader>/ <C-w>/
 
 
 " Python code style formating command for yapf, but install YAPF first (pip install yapf)
