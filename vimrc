@@ -166,6 +166,9 @@ nnoremap <C-L> :nohl<CR><C-L>
 " Sets default clipboard. Allows to copy from vim and paste to whatever place directly
 set clipboard=unnamedplus
 
+" Remap ESC key for more natural kj 
+inoremap kj <ESC>
+
 " Remap leader
 map <SPACE> <leader>
 
