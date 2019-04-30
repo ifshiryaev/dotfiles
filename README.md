@@ -79,7 +79,7 @@ pip install yapf
 ## INSTALL clang-format - C/C++ code formatting utility
 ### Ubuntu
 ```sh
-apt install clang-format
+sudo apt install clang-format
 ```
 ### ArchLinux
 [See AUR for more info](https://aur.archlinux.org/packages/clang-format-all-git/)

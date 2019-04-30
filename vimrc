@@ -174,7 +174,8 @@ map <SPACE> <leader>
 
 " -----------------------------------------------------------
 " Custom pluguins
-set nocompatible              " be iMproved, required filetype off                  " required
+set nocompatible              " be iMproved, required 
+filetype off                  " required
 
 "=====================================================
 " Vundle settings
