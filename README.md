@@ -27,6 +27,10 @@ sudo apt-get install python-dev python3-dev
 cd /path/to/repo/vim/bundle/YouCompleteMe
 python3 ./install.py --clang-completer
 ```
+3. To get TagBar working install (if not installed) exuberant-ctags:
+```
+sudo apt-get install exuberant-ctags
+```
 
 ### When new submodule is installed in remote
 ```sh
