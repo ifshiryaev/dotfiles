@@ -172,9 +172,17 @@ inoremap kj <ESC>
 " Remap leader
 map <SPACE> <leader>
 
+" Set which and how unprintable characters to be displayed
+set listchars=space:.,eol:$,nbsp:%,tab:>-,trail:~,extends:>,precedes:<
+
+" Toggle list (display unprintable characters)
+noremap <F3> :set list!<CR>
+inoremap <F3> :set list!<CR>
+cnoremap <F3> :set list!<CR>
+
 " -----------------------------------------------------------
 " Custom pluguins
-set nocompatible              " be iMproved, required 
+set nocompatible              " be iMproved, required
 filetype off                  " required
 
 "=====================================================
