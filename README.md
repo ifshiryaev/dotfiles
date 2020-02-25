@@ -36,9 +36,7 @@ sudo apt-get install exuberant-ctags
 ```sh
    git submodule update --init --recursive
 ```
-
-### Update one bundled submodule
-```sh
+### Update one bundled submodule ```sh
 cd /path/to/submodule
 git checkout master
 git pull
@@ -72,14 +70,30 @@ Create simlink to tmux.conf file:
 ln -s /path/to/repo/tmux ~/.tmux
 ln -s /path/to/repo/tmux.conf ~/.tmux.conf
 ```
+*To activate vim-like movements with tmux-yank plugin append the following to the ~/.bashrc file:*
+```sh
+export VISUAL=vim
+export EDITOR="$VISUAL"
+```
+
 
 # MISC
 
+## INSTALL gnome-terminal-colors-solarized to activate solarized theme on vim
+```sh
+ git clone https://github.com/aruhier/gnome-terminal-colors-solarized.git
+ cd gnome-terminal-colors-solarized
+ ./install.sh
+```
+Append to the ~/.bashrc file:
+```sh
+eval `dircolors /path/to/dircolorsdb`
+export TERM=screen-256color-bce
+```
 ## INSTALL YAPF - python code style formatting utility
 ```sh
 pip install yapf
 ```
-
 ## INSTALL clang-format - C/C++ code formatting utility
 ### Ubuntu
 ```sh

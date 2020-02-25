@@ -133,6 +133,10 @@ set pastetoggle=<F10>
 set shiftwidth=4
 set softtabstop=4
 set expandtab
+"set colorcolumn=80
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+
  
 " Indentation settings for using hard tabs for indent. Display tabs as
 " four characters wide.
@@ -321,7 +325,7 @@ nnoremap <leader>cf :!clang-format --style="{BasedOnStyle: Mozilla, IndentWidth:
 
 
 " vim-colors-solarized activation
-let g:solarized_termcolors=256
+set t_Co=256
 set background=dark
 colorscheme solarized
 
