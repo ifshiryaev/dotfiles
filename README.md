@@ -1,5 +1,12 @@
 # VIM + PLUGINS INSTALLATION
 
+## Install vim
+```sh
+sudo apt install vim
+```
+*Note that in order to be able to copy text from vim you need vim to be compiled with +clipboard option (:version to check).
+For example, install vim-gtk3 under Ubuntu 16.04 as by default it provides vim version without clipboard support* 
+
 ## Isntall vim config and submodules
 [Based on](http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/)
 ```sh
@@ -36,7 +43,8 @@ sudo apt-get install exuberant-ctags
 ```sh
    git submodule update --init --recursive
 ```
-### Update one bundled submodule ```sh
+### Update one bundled submodule
+```sh
 cd /path/to/submodule
 git checkout master
 git pull
@@ -74,6 +82,10 @@ ln -s /path/to/repo/tmux.conf ~/.tmux.conf
 ```sh
 export VISUAL=vim
 export EDITOR="$VISUAL"
+```
+*If "tmux-yank dependencies not installed!" appears when coping from a terminal with y or Shift+y:*
+```sh
+sudo apt install xclip
 ```
 
 
